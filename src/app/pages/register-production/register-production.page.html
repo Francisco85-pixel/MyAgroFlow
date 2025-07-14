@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registrar Produção</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form (submit)="submitForm()">
+    <ion-item>
+      <ion-label position="stacked">Cultura</ion-label>
+      <ion-input [(ngModel)]="cultura" name="cultura" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Quantidade (kg)</ion-label>
+      <ion-input [(ngModel)]="quantidade" type="number" name="quantidade" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Data da Colheita</ion-label>
+      <ion-datetime [(ngModel)]="data" name="data" presentation="date" required></ion-datetime>
+    </ion-item>
+
+    <ion-button expand="block" type="submit">Salvar Produção</ion-button>
+  </form>
+</ion-content>

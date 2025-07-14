@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Perfil do Produtor</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ng-container *ngIf="usuario$ | async as usuario">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Email</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{ usuario.email }}
+      </ion-card-content>
+    </ion-card>
+
+    <ion-button expand="block" color="danger" (click)="logout()">
+      Sair
+    </ion-button>
+  </ng-container>
+
+  <div *ngIf="!(usuario$ | async)" class="ion-text-center">
+    <p>Carregando dados do usuário...</p>
+  </div>
+</ion-content>

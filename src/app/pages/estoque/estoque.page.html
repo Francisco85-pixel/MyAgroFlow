@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Gestão de Estoque</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form (submit)="registrarMovimentacao()">
+    <ion-item>
+      <ion-label position="stacked">Produto</ion-label>
+      <ion-input [(ngModel)]="produto" name="produto" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Quantidade</ion-label>
+      <ion-input [(ngModel)]="quantidade" type="number" name="quantidade" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Tipo</ion-label>
+      <ion-select [(ngModel)]="tipo" name="tipo" required>
+        <ion-select-option value="entrada">Entrada</ion-select-option>
+        <ion-select-option value="saida">Saída</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-button expand="block" type="submit">Registrar</ion-button>
+  </form>
+
+  <ion-list *ngIf="estoque.length > 0">
+    <ion-list-header>
+      <ion-label>Estoque Atual</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let item of estoque">
+      <ion-label>
+        <h3>{{ item.produto }}</h3>
+        <p>Quantidade: {{ item.quantidade }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

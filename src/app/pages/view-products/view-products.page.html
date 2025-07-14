@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Produtos Publicados</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list *ngIf="produtos$ | async as produtos">
+    <ion-item *ngFor="let produto of produtos">
+      <ion-label>
+        <h2>{{ produto.titulo }}</h2>
+        <p>{{ produto.descricao }}</p>
+        <p><strong>Preço:</strong> {{ produto.preco | currency:'AOA' }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <div *ngIf="(produtos$ | async)?.length === 0" class="ion-text-center">
+    <p>Nenhum produto publicado ainda.</p>
+  </div>
+</ion-content>

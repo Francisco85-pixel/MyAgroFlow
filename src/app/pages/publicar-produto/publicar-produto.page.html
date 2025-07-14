@@ -1,0 +1,27 @@
+<!-- src/app/pages/publicar-produto/publicar-produto.page.html -->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Publicar Produto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form (submit)="publicar()">
+    <ion-item>
+      <ion-label position="stacked">Título</ion-label>
+      <ion-input [(ngModel)]="titulo" name="titulo" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Descrição</ion-label>
+      <ion-textarea [(ngModel)]="descricao" name="descricao" required></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Preço (Kz)</ion-label>
+      <ion-input [(ngModel)]="preco" type="number" name="preco" required></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" type="submit">Publicar</ion-button>
+  </form>
+</ion-content>

@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Produções Registradas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list *ngIf="producoes$ | async as producoes; else carregando">
+    <ion-item *ngFor="let producao of producoes">
+      <ion-label>
+        <h2><strong>{{ producao.cultura }}</strong></h2>
+        <p>Quantidade: {{ producao.quantidade }} kg</p>
+        <p>Data da colheita: {{ producao.data | date:'dd/MM/yyyy' }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ng-template #carregando>
+    <ion-spinner name="crescent"></ion-spinner>
+    <p>Carregando produções...</p>
+  </ng-template>
+</ion-content>
